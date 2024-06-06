@@ -119,6 +119,29 @@ app.get('/allproducts', async(req,res)=>{
     console.log("All Products Fetched")
 })
 
+//Shema creating for User model
+
+constUsers = mongoose.model('Users',{
+    name:{
+        type:String,
+    },
+    email:{
+        type:String,
+        unique:true,
+    },
+    password:{
+        type:String,
+    },
+    cartData:{
+        type:Object
+    },
+    data:{
+        type:Date,
+        default:Date.now,
+    }
+})
+
+
 app.listen(port, (error)=>{
     if (!error){
         console.log("Server Running on Port" + port)
